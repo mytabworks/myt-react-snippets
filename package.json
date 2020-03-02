@@ -1,6 +1,6 @@
 {
     "name": "myt-react-snippets",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "main": "lib/index.js",
     "description": "It is build from the ground up to solve the problem in animation, transition, scrolling, etc.. without extra dependencies.",
     "repository": {

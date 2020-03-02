@@ -2,7 +2,7 @@ import React from 'react'
 
 declare module 'myt-react-snippets'
  
-interface PrefixProps {
+interface SuffixProps {
     enter: string;
     exit: string;
 }
@@ -13,22 +13,29 @@ interface Callbacks {
 
 export interface TransitionAnimationProps { 
     in:         boolean;
-    children:   JSX.Element;
+    children:   React.ReactNode;
     timing?:    number;
     className?: string;
-    mounted?:   boolean;
-    prefix?:    PrefixProps;
+    stayMountedWhenExited?:   boolean;
+    suffix?:    SuffixProps;
     onEnter?:   Callbacks;
     onEntering?:Callbacks;
     onEntered?: Callbacks;
     onExit?:    Callbacks;
     onExiting?: Callbacks;
     onExited?:  Callbacks;
+    onMounted?:  Callbacks;
 }
 
 export const Animation: React.FunctionComponent<TransitionAnimationProps>
 
 export const Transition: React.FunctionComponent<TransitionAnimationProps>
+
+export interface TransitionGroupProps {
+    children: React.ReactNode[]
+}
+
+export const TransitionGroup: React.Component<TransitionGroupProps>
 
 interface Position {
     y: number;
@@ -46,7 +53,7 @@ interface ScreenProps {
 }
 
 interface InitialProps {
-    target?: JSX.Element;
+    target?: React.ReactNode;
     extra_top: number;
     onEntered: Callbacks;
     onExited: Callbacks;
@@ -56,13 +63,13 @@ interface DefaultSpyProps<I, P, A> {
     (first: I, second: P, third: A): void
 }
 
-export interface AdditivesProps {
+export interface ImproviseProps {
     isInitial: boolean;
     isScrollDown: boolean;
     isScrollUp: boolean;
     screen: ScreenProps;
-    main: JSX.Element;
-    defaultSpy?: DefaultSpyProps<InitialProps, PositionProps, AdditivesProps>;
+    main: React.ReactNode;
+    defaultSpy?: DefaultSpyProps<InitialProps, PositionProps, ImproviseProps>;
 }
 
 export interface ScrollCallback<P, A> {
@@ -73,4 +80,4 @@ export interface ScrollPosition<one, two>{
     (first: one, second: two): void
 }
 
-export const useScrollPosition: ScrollPosition<ScrollCallback<PositionProps, AdditivesProps>, JSX.Element|string>
+export const useScrollPosition: ScrollPosition<ScrollCallback<PositionProps, ImproviseProps>, React.ReactNode|string>
