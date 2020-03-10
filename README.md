@@ -5,7 +5,7 @@
 
 
 # myt-react-snippets
-This is a module which is build from the ground up to solve the problems in animation, transition, transition in group, scrollpossitions, etc... it has no extra dependencies which can be a little less. 
+This react animation library snippets which is build from the ground up to solve the problems in animation, transition, transition in group, scrollpossitions, etc... it has no extra dependencies which can be a light-weight. 
 
 - [Installation](#installation)
 - [How To Use](#how-to-use)
