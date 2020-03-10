@@ -7,12 +7,11 @@ interface SuffixProps {
     exit: string;
 }
 
-interface Callbacks {
-    (): void
-}
+type Callbacks = (node:any) => void
+
 
 export interface TransitionAnimationProps { 
-    in:         boolean;
+    in?:         boolean;
     children:   React.ReactNode;
     timing?:    number;
     className?: string;
@@ -25,6 +24,7 @@ export interface TransitionAnimationProps {
     onExiting?: Callbacks;
     onExited?:  Callbacks;
     onMounted?:  Callbacks;
+    allowRef?:  boolean;
 }
 
 export const Animation: React.FunctionComponent<TransitionAnimationProps>

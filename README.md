@@ -30,7 +30,7 @@ yarn add myt-react-snippets
 
 ## import to your project
 ```js
-import { Animation, Transition, useScrollPosition } from 'myt-react-snippets'
+import { Animation, Transition, useScrollPosition, TransitionGroup } from 'myt-react-snippets'
 ```
 
 ## Animation Usage
@@ -204,6 +204,7 @@ The datatypes with "*" means it is required.
 | timing      | number\|millsecond| 1000     | it is the timing of the animation will be transitioned |
 | suffix      | {<br/> &nbsp;&nbsp; enter: string*,<br/>&nbsp;&nbsp; exit: string*<br/>} | {<br/> &nbsp;&nbsp; enter: '-in',<br/> &nbsp;&nbsp; exit: '-out' <br/>}    | it is the suffix for className. basically if the className assigned is `fade` then when the component or element entering in. it will assign a className `fade-in` in the children, same way in exit. and for additional idea. suffix can be use when the enter and exit className are not uniformed ex. `fade-in` and `slide-out`. To make it happen just don't assign anything in className and assign the class names in suffix ex. `{ enter:"fade-in", exit:"slide-out" }` |
 | stayMountedWhenExited      | boolean | false     | it is determined whether the component or element will stay mounted or unmounted from DOM when animation is exited. if it is `true` it will use `display` `block` and `none` from entering and exiting of the element|
+| allowRef     | boolean | false     | if true it will pass the animated/children node element on any event below, if the animated/children is component make sure it is `React.forwardRef` component. so it can get the node|
 | onEnter      | function | &nbsp;     | it is invoke when the animation is started to enter |
 | onEntering   | function | &nbsp;     | it is invoke when the animation is entering |
 | onEntered    | function | &nbsp;     | it is invoke when the animation is fully entered |
